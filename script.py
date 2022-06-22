@@ -12,11 +12,14 @@ Example:
 For max number is 16 the output will be:
 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz, 16
 
+Replacement options:
+Instead of 3, 5 and Fizz, Buzz can be other digits and strings
+
 """
 
 
 class FizzBuzzRunner:
-    """Run FizzBuzz game and print result"""
+    """Run FizzBuzz game and print result strings"""
 
     __DEFAULT_REPLACEMENT_OPTIONS = {3: 'Fizz', 5: 'Buzz'}
 
@@ -29,12 +32,28 @@ class FizzBuzzRunner:
 
     @staticmethod
     def __is_divided_without_remainder(divisible: int, divider: int) -> bool:
-        """True if divisible divide to divider without remainder"""
+        """True if divisible divide to divider without remainder.
+
+        For example:
+        1) 6 % 3 - True
+        2) 10 % 5 - True
+        3) 7 % 3 - False
+        4) 11 % 5 - False
+
+        """
 
         return divisible % divider == 0
 
     def __get_string_or_number(self, number: int) -> str | int:
-        """Return string (if number divide without remainder) or number"""
+        """Return string (if number divide without remainder) or number.
+
+        Example for __replacement_options = {3: 'Fizz', 5: 'Buzz'}:
+        1) number = 2 -> return 2
+        2) number = 3 -> return Fizz
+        3) number = 5 -> return Buzz
+        4) number = 15 -> return FizzBuzz
+
+        """
 
         string = ''
 
@@ -53,7 +72,7 @@ class FizzBuzzRunner:
         )
 
     @property
-    def __fizz_buzz_values(self) -> tuple:
+    def __result_values(self) -> tuple:
         """Return result values after FizzBuzz running"""
 
         values = []
@@ -68,7 +87,7 @@ class FizzBuzzRunner:
 
         self.__print_game_title()
 
-        for value in self.__fizz_buzz_values:
+        for value in self.__result_values:
             print(value)
 
 
