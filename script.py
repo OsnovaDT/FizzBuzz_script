@@ -1,11 +1,10 @@
-# 2) Добавить в функцию числовой лимит
 # 3) Добавить в функцию вариант замены элементов
 # 4) Отрефакторить
 
-def run_fizz_buzz() -> None:
+def run_fizz_buzz(max_number: int) -> None:
     """Run FizzBuzz game"""
 
-    for number in range(1, 20):
+    for number in range(1, max_number + 1):
         fizz_buzz = ''
 
         if number % 3 == 0:
@@ -18,4 +17,4 @@ def run_fizz_buzz() -> None:
 
 
 if __name__ == '__main__':
-    run_fizz_buzz()
+    run_fizz_buzz(16)
